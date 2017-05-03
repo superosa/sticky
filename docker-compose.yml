@@ -1,0 +1,15 @@
+balancer:
+  build: balancer/
+  ports:
+  - 80:80
+  restart: always
+  links:
+  - frontend1
+  - frontend2
+frontend1:
+  build: frontend1/
+  restart: always
+frontend2:
+  build: frontend2/
+# что бы тестировать  падение сервиса
+#  restart: always
